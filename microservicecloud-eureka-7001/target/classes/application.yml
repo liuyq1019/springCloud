@@ -1,0 +1,16 @@
+server:
+  port: 7001
+  
+eureka:
+#  server:
+#    enable-self-preservation: false #erueka false表示不开启保护
+  instance:
+#    hostname: localhost #eureka服务端的实例名称
+     hostname: vimicro7001.com
+  client:
+    register-with-eureka: false #false 表示不将自己注册到注册中心
+    fetch-registry: false #false表示本身就是注册中心，主要是维护服务器实例，并不需要去检索服务
+    service-url:
+    #设置与eureka server交互的地址查询服务器和注册服务都需要依赖此地址
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/  
+      defaultZone: http://vimicro7001.com:7001/eureka/,http://vimicro7002.com:7002/eureka/,http://vimicro7003.com:7003/eureka/

@@ -1,0 +1,42 @@
+server:
+  port: 8001
+  
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.viss.springcloud.entities
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml                   #mapper映射文件
+ 
+ 
+spring:
+  application:
+    name: microserviceclooud-dept #eureka中Application标识
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/clouddb01
+    username: root
+    password: 12345678
+    druid:
+      filters: stat,wall,log4j
+    dbcp2:
+      min-idle: 5           #数据库连接词的最小维护连接数
+      initial-size: 5       #初始化连接数
+      max-total: 5          #最大连接数
+      max-wait-millis: 300  #等待连接获取的最大超时时间
+ 
+eureka:
+  client:
+    service-url:
+#      defaultZone: http://localhost:7001/eureka #单机配置
+#集群配置
+      defaultZone: http://vimicro7001.com:7001/eureka/,http://vimicro7002.com:7002/eureka/,http://vimicro7002.com:7002/eureka/
+  instance:
+    instance-id: dept8001   #eureka 服务注册中status 别名
+    prefer-ip-address: true #访问地址中显示别名
+
+info: 
+    app.name : dept8001
+    coompany.name: 不告诉你
+    build.afId: microservicecloud-provider-dept-8002
+    build.vs: 0.0.1-SNAPSHOT
