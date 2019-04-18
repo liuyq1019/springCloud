@@ -30,7 +30,7 @@ eureka:
     service-url:
 #      defaultZone: http://localhost:7001/eureka #单机配置
 #集群配置
-      defaultZone: http://vimicro7001.com:7001/eureka/,http://vimicro7002.com:7002/eureka/,http://vimicro7002.com:7002/eureka/
+      defaultZone: http://vimicro7001.com:7001/eureka/,http://vimicro7002.com:7002/eureka/,http://vimicro7003.com:7003/eureka/
   instance:
     instance-id: dept8001   #eureka 服务注册中status 别名
     prefer-ip-address: true #访问地址中显示别名
